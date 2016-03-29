@@ -27,7 +27,7 @@ public class AccountAuthenticationProvider extends AbstractUserDetailsAuthentica
 			throw new BadCredentialsException("Authentication Error");
 		}
 		
-		
+
 		if (!userDetails.getPassword().equals(token.getCredentials())){
 			throw new BadCredentialsException("Incorrect Password");
 		}
