@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Component
-public class AccountAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+public class SimpleLoginAppAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 
 	@Autowired
-	private AccountUserDetailsService userDetailsService;
+	private SimpleAppUserDetailsService userDetailsService;
 
 //	@Autowired
 //	private PasswordEncoder passwordEncoder;
@@ -45,5 +45,4 @@ public class AccountAuthenticationProvider extends AbstractUserDetailsAuthentica
 		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 		return userDetails;
 	}
-
 }

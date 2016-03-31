@@ -12,20 +12,24 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.teamonline.model.AppUser;
+import com.teamonline.service.AppUserService;
+
 
 @Service
-public class AccountUserDetailsService implements UserDetailsService {
+public class SimpleAppUserDetailsService implements UserDetailsService {
 	
-//	@Autowired
-//	private AccountService accountService;
+	@Autowired
+	private AppUserService appUserService;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-//		Account account = accountService.findByUsername(username);
-//		if (account == null){
-//			return null;
-//		}		
+		AppUser appUser = appUserService.findUserByName(username);
+		if (appUser == null){
+			return null;
+		}
+		
 		Collection<GrantedAuthority> grantedAuthority = new ArrayList<GrantedAuthority>();
 		grantedAuthority.add(new SimpleGrantedAuthority("USER"));
 

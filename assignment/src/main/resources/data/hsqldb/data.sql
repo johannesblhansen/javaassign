@@ -1,0 +1,1 @@
+INSERT INTO AppUser (username, password) VALUES ('user', '$2a$10$9/44Rne7kQqPXa0cY6NfG.3XzScMrCxFYjapoLq/wFmHz7EC9praK');

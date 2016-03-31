@@ -4,14 +4,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Main runnable. Boots the application
+ * Main runnable.
  * @author Johannes
  *
  */
 @SpringBootApplication
-public class AssignmentApplication {
+public class SuperSimpleLoginApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AssignmentApplication.class, args);
+		SpringApplication.run(SuperSimpleLoginApp.class, args);
 	}
 }
