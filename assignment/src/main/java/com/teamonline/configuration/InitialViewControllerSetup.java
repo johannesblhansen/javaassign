@@ -1,23 +1,26 @@
-package com.teamonline.controller;
+package com.teamonline.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * Controls the flow of the front end.
+ * Adds view controllers to the application
  * @author Johannes
  *
  */
 @Configuration
-public class MvcConfig extends WebMvcConfigurerAdapter {
-
+public class InitialViewControllerSetup extends WebMvcConfigurerAdapter {
+	
+	/**
+	 * These are skipping the MVC patterns controller going directly to the view.
+	 */
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/home").setViewName("home");
 		registry.addViewController("/").setViewName("home");
-		registry.addViewController("/hello").setViewName("hello");
 		registry.addViewController("/login").setViewName("login");
-		registry.addViewController("/res").setViewName("res");
+		registry.addViewController("/register").setViewName("register");
+		registry.addViewController("/resource").setViewName("resource");
 	}
 }

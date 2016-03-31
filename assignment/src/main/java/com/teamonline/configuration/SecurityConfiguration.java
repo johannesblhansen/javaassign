@@ -21,7 +21,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  */
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
     @Autowired
     private SimpleLoginAppAuthenticationProvider simpleLoginAppAuthenticationProvider;
