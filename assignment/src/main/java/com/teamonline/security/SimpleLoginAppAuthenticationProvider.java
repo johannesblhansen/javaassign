@@ -15,8 +15,12 @@ public class SimpleLoginAppAuthenticationProvider extends AbstractUserDetailsAut
 	@Autowired
 	private SimpleAppUserDetailsService userDetailsService;
 
-//	@Autowired
-//	private PasswordEncoder passwordEncoder;
+	/**
+	 * Hashes passwords, and can also match clear text passwords with hashed passwords
+	 * For details look at security config class for the instantiation of the injected password encoder class.
+	 */
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Override
 	protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken token)
@@ -27,16 +31,9 @@ public class SimpleLoginAppAuthenticationProvider extends AbstractUserDetailsAut
 			throw new BadCredentialsException("Authentication Error");
 		}
 		
-
-		if (!userDetails.getPassword().equals(token.getCredentials())){
-			throw new BadCredentialsException("Incorrect Password");
+		if (!passwordEncoder.matches((String) token.getCredentials(), userDetails.getPassword())){
+			throw new BadCredentialsException("Bad Password");
 		}
-		
-
-//		
-//		if (!passwordEncoder.matches((String) token.getCredentials(), userDetails.getPassword())){
-//			throw new BadCredentialsException("Bad Password");
-//		}
 	}
 
 	@Override

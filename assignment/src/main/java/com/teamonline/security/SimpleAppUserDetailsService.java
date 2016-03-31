@@ -30,11 +30,12 @@ public class SimpleAppUserDetailsService implements UserDetailsService {
 			return null;
 		}
 		
+		//For the purpose of this super simple app, we will ignore granted auth, and only
+		//give a single simple authority for everything.
 		Collection<GrantedAuthority> grantedAuthority = new ArrayList<GrantedAuthority>();
-		grantedAuthority.add(new SimpleGrantedAuthority("USER"));
+		grantedAuthority.add(new SimpleGrantedAuthority("ALL"));
 
-		//User userDetails = new User(account.getUsername(), account.getPassword(), grantedAuthority);
-		User userDetails = new User("name", "pass", grantedAuthority);
+		User userDetails = new User(appUser.getUsername(), appUser.getPassword(), grantedAuthority);
 
 		return userDetails;
 	}
