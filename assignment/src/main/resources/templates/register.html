@@ -6,11 +6,11 @@
 <title>Register!</title>
 </head>
 	<body>
-		<h1>Register</h1>
-	    	<form action="#" th:action="@{/createAppUser}" th:object="${AppUserFromInput}" method="post">
+		<h1>Register</h1><!-- th:object="${appUserFromInput}"  -->
+	    	<form th:action="@{/register}" th:object="${appUserFromInput}" method="post">
 	            <div><label> Select A Username : <input type="text" name="newusername" th:field="*{username}"/> </label></div>
 	            <div><label> Select A Password : <input type="password" name="newpassword" th:field="*{password}"/> </label></div>
-	            <div><input type="submit" value="Sign In"/></div>
+	            <div><input type="submit" value="Register"/></div>
 	        </form>
 	</body>
 </html>

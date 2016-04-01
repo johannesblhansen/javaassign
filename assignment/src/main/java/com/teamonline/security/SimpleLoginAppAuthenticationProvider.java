@@ -32,6 +32,7 @@ public class SimpleLoginAppAuthenticationProvider extends AbstractUserDetailsAut
 		}
 		
 		if (!passwordEncoder.matches((String) token.getCredentials(), userDetails.getPassword())){
+			// TODO find out how this is translated to the front end
 			throw new BadCredentialsException("Bad Password");
 		}
 	}

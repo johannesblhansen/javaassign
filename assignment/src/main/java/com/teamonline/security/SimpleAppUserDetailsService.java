@@ -30,7 +30,7 @@ public class SimpleAppUserDetailsService implements UserDetailsService {
 			return null;
 		}
 		
-		//For the purpose of this super simple app, we will ignore granted auth, and only
+		//For the purpose of this super simple app, we will ignore granted authorization, and only
 		//give a single simple authority for everything.
 		Collection<GrantedAuthority> grantedAuthority = new ArrayList<GrantedAuthority>();
 		grantedAuthority.add(new SimpleGrantedAuthority("ALL"));

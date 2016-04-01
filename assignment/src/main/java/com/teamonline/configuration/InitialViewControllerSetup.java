@@ -12,9 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class InitialViewControllerSetup extends WebMvcConfigurerAdapter {
 	
-	/**
-	 * Skipping the MVC patterns' controller using a viewcontroller instead.
-	 */
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/home").setViewName("home");
@@ -22,6 +19,8 @@ public class InitialViewControllerSetup extends WebMvcConfigurerAdapter {
 		registry.addViewController("/login").setViewName("login");
 		registry.addViewController("/register").setViewName("register");
 		registry.addViewController("/userCreated").setViewName("userCreated");
+		registry.addViewController("/hello").setViewName("hello");
 		//registry.addViewController("/resource").setViewName("resource");
 	}
+	
 }
