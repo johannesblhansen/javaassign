@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <head>
-        <title>Super Simple Login App</title>        
-        <link type="text/css"  href="css/bootstrap.min.css" rel="stylesheet" />
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Super Simple Login App</title>        
+		<link type="text/css"  href="css/bootstrap.min.css" rel="stylesheet" />
 		<link type="text/css" href="css/style.css" rel="stylesheet" />
-    </head>
-    <body>
-    	<div th:replace="fragments/headerfragment :: header">&nbsp;</div>
-
-        <h1>Welcome!</h1>
-        <p>Welcome to the Super Simple Login App</p>
-        <p>Click <a th:href="@{/resource}">here here to see a secret resource</a></p>
-    </body>
+	</head>
+	<body>		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div th:replace="fragments/headerfragment :: header"></div>
+					<div class="jumbotron well">
+						<h3>Welcome!</h3>
+						<p>Welcome to the Super Simple Login App</p>
+						<p>Click <a th:href="@{/resource}">here here to see a secret resource</a></p>
+					</div>
+				</div>
+			</div>
+		</div>  
+	</body>
 </html>

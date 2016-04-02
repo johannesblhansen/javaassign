@@ -1,48 +1,26 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <!-- <body>
-	    <div th:fragment="header">
-	    	<h1>This is a header</h1>
-			<div sec:authorize="isAuthenticated()"><p>You are auth</p></div>
-	    </div>
-    </body>
-    
-    <head>    
-    	
-		<link href="css/bootstrap.min.css" rel="stylesheet" />
-		<link href="css/style.css" rel="stylesheet" />
-
-	</head> -->
 	<body>
-
-		<div th:fragment="header" class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<nav class="navbar navbar-default navbar-inverse" role="navigation">
-
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<div class="navbar-header">
-								<a class="navbar-brand" href="#">Brand</a>
-							</div>
-							
-							<div sec:authorize="isAuthenticated()"><p>You are auth</p></div>
-
-							<ul class="nav navbar-nav navbar-right">
-								<li>
-									<a href="#">Login</a>
-								</li>
-							</ul>
-						</div>
-
-					</nav>
-
+		<nav th:fragment="header" class="navbar navbar-default navbar-inverse" role="navigation">
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="navbar-header">
+					<a class="navbar-brand" th:href="@{/home}">Super Simple Login App</a>
 				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li sec:authorize="isAnonymous()">
+						<a th:href="@{/login}">Login</a>
+					</li>
+					<li sec:authorize="isAuthenticated()">										
+						<p class="navbar-text" th:inline="text">Welcome, [[${#httpServletRequest.remoteUser}]]</p>
+					</li>
+					<li sec:authorize="isAuthenticated()">										
+						<a href="#">Logout</a>
+					</li>
+				</ul>
 			</div>
-		</div>
-
+		</nav>
 		<script src="js/jquery.min.js" />
 		<script src="js/bootstrap.min.js" />
 		<script src="js/scripts.js" />
 	</body>
-    
 </html>

@@ -2,15 +2,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-<title>Register!</title>
-</head>
+	<head>
+		<title>Super Simple Login App</title>        
+		<link type="text/css"  href="css/bootstrap.min.css" rel="stylesheet" />
+		<link type="text/css" href="css/style.css" rel="stylesheet" />
+	</head>
 	<body>
-		<h1>Register</h1><!-- th:object="${appUserFromInput}"  -->
-	    	<form th:action="@{/register}" th:object="${appUserFromInput}" method="post">
-	            <div><label> Select A Username : <input type="text" name="newusername" th:field="*{username}"/> </label></div>
-	            <div><label> Select A Password : <input type="password" name="newpassword" th:field="*{password}"/> </label></div>
-	            <div><input type="submit" value="Register"/></div>
-	        </form>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div th:replace="fragments/headerfragment :: header"/>
+					<div class="jumbotron well">
+						<h3>Register A new User</h3>
+						<form role="form" th:action="@{/register}" th:object="${appUserFromInput}" method="post">
+							<div class="form-group">					 
+								<label for="registerNameInputID">User Name</label>
+								<input type="text" class="form-control" name="username" id="registerNameInputID" th:field="*{username}" />
+							</div>
+							<div class="form-group">					 
+								<label for="registerPasswordInputID">Password</label>
+								<input type="password" class="form-control" name="registerPasswordInputID" th:field="*{password}" />
+							</div>
+							<button type="submit" class="btn btn-default">Register</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>  
 	</body>
 </html>
