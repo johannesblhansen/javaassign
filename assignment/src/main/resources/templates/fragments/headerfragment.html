@@ -11,10 +11,13 @@
 						<a th:href="@{/login}">Login</a>
 					</li>
 					<li sec:authorize="isAuthenticated()">										
+						<a th:href="@{/resource}">Secret Resource</a>
+					</li>
+					<li sec:authorize="isAuthenticated()">										
 						<p class="navbar-text" th:inline="text">Welcome, [[${#httpServletRequest.remoteUser}]]</p>
 					</li>
 					<li sec:authorize="isAuthenticated()">										
-						<a href="#">Logout</a>
+						<a th:href="@{/logout}">Logout</a>
 					</li>
 				</ul>
 			</div>

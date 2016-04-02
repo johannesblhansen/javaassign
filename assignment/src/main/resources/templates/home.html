@@ -10,10 +10,12 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div th:replace="fragments/headerfragment :: header"></div>
-					<div class="jumbotron well">
-						<h3>Welcome!</h3>
-						<p>Welcome to the Super Simple Login App</p>
-						<p>Click <a th:href="@{/resource}">here here to see a secret resource</a></p>
+					<div class="jumbotron well"> 
+						<h2 class="text-center">Welcome!</h2>
+						<hr />
+						<p>Welcome to the Super Simple Login App!</p>
+						<p>This application will let you create a user. Once you have done so, you can access the secret resource.</p>
+						<p>Once successfully authenticated, a link to the resource will appear in the navigation bar to the left.</p>
 					</div>
 				</div>
 			</div>
