@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
-        <title>Spring Security Example</title>
+        <title>Super Simple Login App</title>
     </head>
     <body>
-    	<div sec:authorize="isAuthenticated()"><p>You are auth</p></div>
+    	<div th:replace="fragments/headerfragment :: header">&nbsp;</div>
+
         <h1>Welcome!</h1>
         <p>Welcome to the Super Simple Login App</p>
         <p>Click <a th:href="@{/resource}">here here to see a secret resource</a></p>

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <body>
+	    <div th:fragment="header">
+	    	<h1>This is a header</h1>
+			<div sec:authorize="isAuthenticated()"><p>You are auth</p></div>
+	    </div>
+    </body>
+</html>
