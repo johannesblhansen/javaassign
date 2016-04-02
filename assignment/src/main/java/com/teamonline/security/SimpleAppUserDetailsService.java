@@ -27,7 +27,7 @@ public class SimpleAppUserDetailsService implements UserDetailsService {
 		
 		AppUser appUser = appUserService.findUserByName(username);
 		if (appUser == null){
-			return null;
+			throw new UsernameNotFoundException("Couldn't find user with name: " + username);
 		}
 		
 		//For the purpose of this super simple app, we will ignore granted authorization, and only

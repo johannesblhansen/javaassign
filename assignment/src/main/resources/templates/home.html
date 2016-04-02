@@ -4,6 +4,7 @@
         <title>Spring Security Example</title>
     </head>
     <body>
+    	<div sec:authorize="isAuthenticated()"><p>You are auth</p></div>
         <h1>Welcome!</h1>
         <p>Welcome to the Super Simple Login App</p>
         <p>Click <a th:href="@{/resource}">here here to see a secret resource</a></p>
