@@ -2,9 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
-        <title>Hello World!</title>
+        <title>Secret Resource</title>
     </head>
     <body>
-        <h1>Something RES</h1>
+        <h1>Something Secret</h1>
+        <h2 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h2>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
     </body>
 </html>

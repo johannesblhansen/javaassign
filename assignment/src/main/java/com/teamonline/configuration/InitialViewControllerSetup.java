@@ -19,8 +19,7 @@ public class InitialViewControllerSetup extends WebMvcConfigurerAdapter {
 		registry.addViewController("/login").setViewName("login");
 		registry.addViewController("/register").setViewName("register");
 		registry.addViewController("/userCreated").setViewName("userCreated");
-		registry.addViewController("/hello").setViewName("hello");
-		//registry.addViewController("/resource").setViewName("resource");
+		registry.addViewController("/resource").setViewName("resource");
 	}
 	
 }
