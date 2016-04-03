@@ -1,5 +1,6 @@
 package com.teamonline.controller;
 
+import org.apache.log4j.Logger;
 import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
 import org.hsqldb.HsqlException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import com.teamonline.service.AppUserService;
 
 @Controller
 public class RegisterController {
+	
+	private static Logger logger = Logger.getLogger(RegisterController.class);
 
 	@Autowired
 	private AppUserService appUserService;

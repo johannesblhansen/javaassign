@@ -9,8 +9,8 @@
 	<packaging>jar</packaging>
 
 	<name>assignment</name>
-	<description>Demo project for Spring Boot</description>
-
+	<description>Junior dev test from EG Team Online</description>
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -47,6 +47,24 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+		
+		<!-- I have chosen log4j since that is what I know. That means I have to exclude the standard 
+		spring boot logging framework, Logback -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j</artifactId>
 		</dependency>
 
 		<dependency>

@@ -3,10 +3,15 @@ package com.teamonline.service;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
+
+import com.teamonline.controller.RegisterController;
 
 @Service
 public class PasswordStrengthServiceBean implements PasswordStrengthService {
+	
+	private static Logger logger = Logger.getLogger(PasswordStrengthServiceBean.class);
 
 	/**
 	 * Takes a password as a String and validates if the password is Strong.
@@ -23,15 +28,21 @@ public class PasswordStrengthServiceBean implements PasswordStrengthService {
 	 */
 	@Override
 	public boolean isPasswordStrong(String password) {
+		logger.info("Checking strenght of password: " + password);				
 		if (password == null){
+			logger.debug("Checking strenght of password: " + password + " password is null");	
 			return false;
 		} else if ((password.length() < 8) || (password.length() > 20 )){ //Check length constraints
+			logger.debug("Checking strenght of password: " + password + " password has a wrong lenghth: " + password.length());
 			return false;
 		} else if (password.equals(password.toLowerCase()) || password.equals(password.toUpperCase())){ // Check case contraints
+			logger.debug("Checking strenght of password: " + password + " password fails multible case contraint");
 			return false;
 		} else if (!password.matches(".*\\d+.*")){
+			logger.debug("Checking strenght of password: " + password + " password has no digit");
 			return false;
 		} else if(containsNonDigitOrChar(password)){
+			logger.debug("Checking strenght of password: " + password + " password contains non digit char");
 			return false;
 		}
 		return true;

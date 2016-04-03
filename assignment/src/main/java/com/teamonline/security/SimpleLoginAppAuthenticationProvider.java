@@ -1,5 +1,6 @@
 package com.teamonline.security;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -7,10 +8,15 @@ import org.springframework.security.authentication.dao.AbstractUserDetailsAuthen
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
+import com.teamonline.service.PasswordStrengthServiceBean;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Component
 public class SimpleLoginAppAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+	
+	private static Logger logger = Logger.getLogger(SimpleLoginAppAuthenticationProvider.class);
 
 	@Autowired
 	private SimpleAppUserDetailsService userDetailsService;
@@ -24,8 +30,7 @@ public class SimpleLoginAppAuthenticationProvider extends AbstractUserDetailsAut
 
 	@Override
 	protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken token)
-			throws AuthenticationException {
-		
+			throws AuthenticationException {		
 		//Password cannot be null in either user from server, or user input user info.
 		if(token.getCredentials() == null || userDetails.getPassword() == null){
 			throw new BadCredentialsException("Authentication Error");
