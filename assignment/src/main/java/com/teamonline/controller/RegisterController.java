@@ -12,6 +12,11 @@ import com.teamonline.model.AppUser;
 import com.teamonline.service.AppUserRegistrationRuntimeException;
 import com.teamonline.service.AppUserService;
 
+/**
+ * Spring MvC controller. Handles the register user template.
+ * @author Johannes
+ *
+ */
 @Controller
 public class RegisterController {
 
@@ -26,6 +31,12 @@ public class RegisterController {
 		return ApplicationConstants.REGISTER;
 	}
 
+	/**
+	 * Handles creating a user form. The form input's is translated directly into the model attribute by thymeleaf.
+	 * @param appUserFromInput The app user model attribute. Values are collected in the view.
+	 * @param model
+	 * @return return the name of the view routed to by the framework.
+	 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String addAppUserFormHandling(@ModelAttribute AppUser appUserFromInput, Model model) {
 		model.addAttribute(ApplicationConstants.MODEL_APPUSER, appUserFromInput);
