@@ -3,6 +3,9 @@ package com.teamonline.service;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class PasswordStrengthServiceBean implements PasswordStrengthService {
 
 	/**
@@ -28,15 +31,15 @@ public class PasswordStrengthServiceBean implements PasswordStrengthService {
 			return false;
 		} else if (!password.matches(".*\\d+.*")){
 			return false;
-		} else if(!containsOnlyDigitsAndChars()){
+		} else if(containsNonDigitOrChar(password)){
 			return false;
 		}
 		return true;
 	}
 	
-	private boolean containsOnlyDigitsAndChars(){
+	private boolean containsNonDigitOrChar(String password){
 		Pattern pattern = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
-		Matcher matcher = pattern.matcher("I am a string");
+		Matcher matcher = pattern.matcher(password);
 		return matcher.find();
 	}
 
