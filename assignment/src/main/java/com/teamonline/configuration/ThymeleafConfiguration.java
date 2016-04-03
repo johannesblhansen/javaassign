@@ -5,7 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 
 /**
- * The thymeleaf frameworks needs this bean to be able to user security directly in the views
+ * The thymeleaf frameworks needs this bean to be able to use security directly in the views
+ * Look for the name space in the template html
  * @author Johannes
  *
  */

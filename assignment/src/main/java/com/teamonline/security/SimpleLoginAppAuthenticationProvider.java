@@ -9,10 +9,13 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.teamonline.service.PasswordStrengthServiceBean;
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Spring security point IoC. Application specific user lookup and authentication is added here.
+ * @author Johannes
+ *
+ */
 @Component
 public class SimpleLoginAppAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 	
@@ -33,18 +36,21 @@ public class SimpleLoginAppAuthenticationProvider extends AbstractUserDetailsAut
 			throws AuthenticationException {		
 		//Password cannot be null in either user from server, or user input user info.
 		if(token.getCredentials() == null || userDetails.getPassword() == null){
+			logger.info("Logging attempt failed for user: " + userDetails.getUsername() + " password from input or db is null");
 			throw new BadCredentialsException("Authentication Error");
 		}
 		
 		if (!passwordEncoder.matches((String) token.getCredentials(), userDetails.getPassword())){
-			// TODO find out how this is translated to the front end
+			logger.info("Logging attempt failed for user: " + userDetails.getUsername() + " bad password");
 			throw new BadCredentialsException("Bad Password");
 		}
+		logger.info("Logging attempt success for user: " + userDetails.getUsername());
 	}
 
 	@Override
 	protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken token)
 			throws AuthenticationException {
+		logger.info("Logging attempt started for user: " + username);
 		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 		return userDetails;
 	}

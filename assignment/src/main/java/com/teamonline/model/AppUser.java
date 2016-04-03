@@ -5,6 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+/**
+ * App User model entity. Used by the AppUserRepository
+ * @author Johannes
+ *
+ */
 @Entity
 public class AppUser {
 	

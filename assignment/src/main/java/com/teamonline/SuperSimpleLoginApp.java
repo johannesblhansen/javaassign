@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Main runnable.
+ * Main runnable. Boots the application
  * @author Johannes
  *
  */

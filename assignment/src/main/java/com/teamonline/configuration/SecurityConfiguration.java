@@ -16,7 +16,7 @@ import com.teamonline.security.SimpleLoginAppAuthenticationProvider;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 /**
- * 
+ * Configuring Spring Security in Spring Boot.
  * @author Johannes
  *
  */
@@ -36,12 +36,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     	return new BCryptPasswordEncoder();
     }
 	
+    /**
+     * Configures security on resources
+     */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/", "/home", "/register", "/createAppUser", "/userCreated", "/css/*", "/js/*", "/rest/**").permitAll().anyRequest().authenticated().and().formLogin()
 				.loginPage("/login").permitAll().and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();
 	}
 
+	/**
+	 * Adds the application specific authentication provider.
+	 * @param auth
+	 * @throws Exception
+	 */
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(simpleLoginAppAuthenticationProvider);

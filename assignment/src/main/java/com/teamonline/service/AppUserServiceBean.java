@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.teamonline.controller.RegisterController;
 import com.teamonline.model.AppUser;
-import com.teamonline.repository.UserRepository;
+import com.teamonline.repository.AppUserRepository;
 
 @Service
 public class AppUserServiceBean implements AppUserService {
@@ -15,7 +15,7 @@ public class AppUserServiceBean implements AppUserService {
 	private static Logger logger = Logger.getLogger(RegisterController.class);
 	
 	@Autowired
-	private UserRepository userRepository;
+	private AppUserRepository userRepository;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;

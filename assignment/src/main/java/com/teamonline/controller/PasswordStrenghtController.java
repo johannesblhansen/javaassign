@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.teamonline.service.PasswordStrengthService;
 
+/**
+ * Rest service for checking strength of a password.
+ * @author Johannes
+ *
+ */
 @RestController
 public class PasswordStrenghtController {
 	
@@ -17,7 +22,7 @@ public class PasswordStrenghtController {
 	private PasswordStrengthService passwordStrengthService;
 	
 	@RequestMapping(value="/rest/strength/{password}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Boolean addAppUserFormHandling(@PathVariable("password") String password){		
+	public Boolean addAppUserFormHandling(@PathVariable("password") String password){
 		return passwordStrengthService.isPasswordStrong(password);
 	}
 }
