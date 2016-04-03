@@ -4,10 +4,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.teamonline.ApplicationConstants;
+import com.teamonline.util.ApplicationConstants;
 
 /**
- * Adds view controllers to the application.
+ * Adds view controllers to the application at specific paths
  * @author Johannes
  *
  */

@@ -43,4 +43,9 @@ public class AppUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	@Override
+	public String toString(){
+		return "Application user with name: " + username;
+	}	
 }

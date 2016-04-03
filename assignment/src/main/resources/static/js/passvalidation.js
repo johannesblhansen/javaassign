@@ -1,7 +1,8 @@
-
 /*
  * Using Jquery here to add eventhandler til keyup event. They keyup will read the value of the password 
  * input field and test it against the password strenght rest service.
+ * 
+ * auther Johannes Hansen
  */
 $(function (){
 	$("#registerPasswordInputID").keyup(function(){

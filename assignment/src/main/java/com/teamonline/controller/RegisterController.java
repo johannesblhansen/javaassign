@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.teamonline.ApplicationConstants;
 import com.teamonline.model.AppUser;
 import com.teamonline.service.AppUserRegistrationRuntimeException;
 import com.teamonline.service.AppUserService;
+import com.teamonline.util.ApplicationConstants;
 
 /**
  * Spring MvC controller. Handles the register user template.

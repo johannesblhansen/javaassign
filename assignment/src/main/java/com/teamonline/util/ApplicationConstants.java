@@ -1,4 +1,4 @@
-package com.teamonline;
+package com.teamonline.util;
 
 public interface ApplicationConstants {
 	

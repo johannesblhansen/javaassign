@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * Spring security point IoC. Application specific user lookup and authentication is added here.
+ * Spring security point of IoC. Application specific user lookup and authentication is added here.
  * @author Johannes
  *
  */
