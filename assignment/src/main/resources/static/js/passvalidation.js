@@ -7,9 +7,9 @@ $(function (){
 				url: '/rest/strength/' + password,
 				success: function(data){
 					if (data == true){
-						$('#passwordstrlabel').text("Password is strong");
+						$('#passwordstrlabel').text("Password is approved");
 					} else {
-						$('#passwordstrlabel').text("Password is not strong enough!");
+						$('#passwordstrlabel').text("Password must contain at least one digit and one upper case and lower case letter");
 					}
 				}
 			});

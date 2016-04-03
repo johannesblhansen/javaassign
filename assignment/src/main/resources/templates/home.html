@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 	<head>
 		<title>Super Simple Login App</title>        
 		<link type="text/css"  href="css/bootstrap.min.css" rel="stylesheet" />
@@ -14,8 +14,13 @@
 						<h2 class="text-center">Welcome!</h2>
 						<hr />
 						<p>Welcome to the Super Simple Login App!</p>
-						<p>This application will let you create a user. Once you have done so, you can access the secret resource.</p>
-						<p>Once successfully authenticated, a link to the resource will appear in the navigation bar to the left.</p>
+						<p sec:authorize="isAnonymous()">
+							This application will let you create a user. Once you have done so, you can access the secret resource.
+							Once successfully authenticated, a link to the resource will appear in the navigation bar to the left.
+						</p>
+						<p sec:authorize="isAuthenticated()">
+							You are authenticated. You should see a link to the secret resource in navigation bar to the left.
+						</p>
 					</div>
 				</div>
 			</div>

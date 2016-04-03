@@ -5,4 +5,5 @@ create table AppUser (
   username varchar(100) not NULL,
   password varchar(200) not NULL,
   primary key (id),
+  CONSTRAINT AppUser_Name_Unique UNIQUE (username)
 );

@@ -1,2 +1,2 @@
-/* Creates a user with name: user, password: pass - The password is encoded with the bcrypt encoder*/
+/* Creates a user with name: "user", password: "pass" - The password is encoded with the bcrypt encoder*/
 INSERT INTO AppUser (username, password) VALUES ('user', '$2a$10$ettMbk17AK8IDEsCpA52ne7ivME2f7RpK8p1Isn5Cm7XlcqKiik5K');
