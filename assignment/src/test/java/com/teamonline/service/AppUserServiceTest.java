@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
 /**
  * Testing services from the application.
  * 
- * This test uses the already created user set up by data migration sql on the hsqldb.
- * Since this test uses the BaseSpringTest, the migration is run before test are executed
+ * This test uses the already created user set up by data initialization sql on the hsqldb.
+ * Since this test uses the BaseSpringTest, the initialization is run before test are executed
  * @author Johannes
  *
  */
