@@ -1,6 +1,7 @@
 package com.teamonline;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.FilterChainProxy;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -14,7 +15,10 @@ public abstract class SpringControllerTest extends BaseSpringTest {
 	@Autowired
 	protected WebApplicationContext webAppConfiguration;
 	
+	@Autowired
+	private FilterChainProxy filterChainProxy;
+	
 	protected void setUp(){
-		mockMvc = MockMvcBuilders.webAppContextSetup(webAppConfiguration).build();
+		mockMvc = MockMvcBuilders.webAppContextSetup(webAppConfiguration).dispatchOptions(true).addFilters(filterChainProxy).build();
 	}
 }
