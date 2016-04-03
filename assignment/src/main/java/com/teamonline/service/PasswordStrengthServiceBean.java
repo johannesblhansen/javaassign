@@ -26,7 +26,6 @@ public class PasswordStrengthServiceBean implements PasswordStrengthService {
 	 */
 	@Override
 	public boolean isPasswordStrong(String password) {
-		logger.info("Checking strenght of password: " + password);				
 		if (password == null){
 			logger.debug("Checking strenght of password: " + password + " password is null");	
 			return false;
@@ -43,6 +42,7 @@ public class PasswordStrengthServiceBean implements PasswordStrengthService {
 			logger.debug("Checking strenght of password: " + password + " password contains non digit char");
 			return false;
 		}
+		logger.info("Validated a successful password: " + password);
 		return true;
 	}
 	

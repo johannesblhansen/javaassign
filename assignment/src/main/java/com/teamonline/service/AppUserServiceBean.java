@@ -41,9 +41,9 @@ public class AppUserServiceBean implements AppUserService {
 	public void registerUser(AppUser appUser) {
 		
 		String username = appUser.getUsername();
-		if (username == null){
-			logger.error("Creating user, but username was null");
-			throw new AppUserRegistrationRuntimeException("Username cannot be null");
+		if (username == null || username.isEmpty()){
+			logger.error("Creating user, but username was null or empty");
+			throw new AppUserRegistrationRuntimeException("Username cannot be empty");
 		}	
 
 		if (userRepository.findByUsername(username) != null){
