@@ -20,5 +20,6 @@ public abstract class SpringControllerTest extends BaseSpringTest {
 	
 	protected void setUp(){
 		mockMvc = MockMvcBuilders.webAppContextSetup(webAppConfiguration).dispatchOptions(true).addFilters(filterChainProxy).build();
+		
 	}
 }
