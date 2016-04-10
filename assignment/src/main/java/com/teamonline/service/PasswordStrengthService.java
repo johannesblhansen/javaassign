@@ -1,7 +1,9 @@
 package com.teamonline.service;
 
+import com.teamonline.model.PasswordStrengthModel;
+
 public interface PasswordStrengthService {
 	
-	boolean isPasswordStrong(String password);
+	PasswordStrengthModel isPasswordStrong(String password);
 
 }

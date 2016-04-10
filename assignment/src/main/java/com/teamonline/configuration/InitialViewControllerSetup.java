@@ -19,7 +19,6 @@ public class InitialViewControllerSetup extends WebMvcConfigurerAdapter {
 		registry.addViewController("/home").setViewName(ApplicationConstants.HOME);
 		registry.addViewController("/").setViewName(ApplicationConstants.HOME);
 		registry.addViewController("/login").setViewName(ApplicationConstants.LOGIN);
-		registry.addViewController("/register").setViewName(ApplicationConstants.REGISTER);
 		registry.addViewController("/resource").setViewName(ApplicationConstants.RESOURCE);
 	}	
 }

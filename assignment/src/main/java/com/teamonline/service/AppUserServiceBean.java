@@ -52,14 +52,15 @@ public class AppUserServiceBean implements AppUserService {
 		}
 		
 		String clearTextPassword = appUser.getPassword();
-		if (!passwordStrengthService.isPasswordStrong(clearTextPassword)){
+		
+		if (!passwordStrengthService.isPasswordStrong(clearTextPassword).isStrengthValid()){
 			logger.error("Creating user with username: " + username + " password didn't failed strenght test");
 			throw new AppUserRegistrationRuntimeException("Password is not strong enough");
 		}
 		
 		logger.info("Registering new user " + username + " - " + clearTextPassword);
 		
-		//Replacing the cleartext password with an encoded password.
+		//Replacing the clear text password with an encoded password.
 		appUser.setPassword("");
 		String encodedPassword = passwordEncoder.encode(clearTextPassword);
 		appUser.setPassword(encodedPassword);

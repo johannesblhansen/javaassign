@@ -4,6 +4,7 @@
 	<head>
 		<title>Super Simple Login App</title>        
 		<link type="text/css"  href="css/bootstrap.min.css" rel="stylesheet" />
+		<link type="text/css"  href="css/password-val.css" rel="stylesheet" />
 		<script src="js/jquery.min.js" />
 	</head>
 	<body>
@@ -25,7 +26,14 @@
 								<input type="password" class="form-control" name="password" id="registerPasswordInputID" th:field="*{password}" />
 							</div>							
 							<button type="submit" class="btn btn-default" id="registersubmitid">Register</button>
-							<label for="registersubmitid" id="passwordstrlabel">Password must contain at least one digit and one upper case and lower case letter</label>
+							
+							<!-- PASSWORD HANDLING -->
+							  <ul>
+							    <li id="pwlength" class="notValid">Password must be between 8 and 20 characters</li>
+							    <li id="pwsymbol" class="notValid">Password cannot contain a non character symbol</li>
+							    <li id="pwupperLower" class="notValid">Password must contain at least one upper and lower case letter</li>
+							    <li id="pwdigit" class="notValid">Password must contain at least one digit</li>
+							  </ul>			
 						</form>
 					</div>
 				</div>
