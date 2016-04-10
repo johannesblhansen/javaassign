@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.teamonline.model.PasswordStrengthModel;
 import com.teamonline.service.PasswordStrengthService;
 
 /**
@@ -20,8 +21,13 @@ public class PasswordStrenghtController {
 	@Autowired
 	private PasswordStrengthService passwordStrengthService;
 	
+//	@RequestMapping(value="/rest/strength/{password}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+//	public Boolean addAppUserFormHandling(@PathVariable("password") String password){
+//		return passwordStrengthService.isPasswordStrong(password);
+//	}
+	
 	@RequestMapping(value="/rest/strength/{password}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Boolean addAppUserFormHandling(@PathVariable("password") String password){
+	public PasswordStrengthModel addAppUserFormHandling(@PathVariable("password") String password){
 		return passwordStrengthService.isPasswordStrong(password);
 	}
 }

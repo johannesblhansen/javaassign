@@ -6,6 +6,8 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
+import com.teamonline.model.PasswordStrengthModel;
+
 @Service
 public class PasswordStrengthServiceBean implements PasswordStrengthService {
 	
@@ -25,25 +27,28 @@ public class PasswordStrengthServiceBean implements PasswordStrengthService {
 	 * returns true if the above criteria is met.
 	 */
 	@Override
-	public boolean isPasswordStrong(String password) {
+	public PasswordStrengthModel isPasswordStrong(String password) {
+		
+		PasswordStrengthModel passwordStrengthModel = new PasswordStrengthModel();
+		
 		if (password == null){
-			logger.debug("Checking strenght of password: " + password + " password is null");	
-			return false;
+			logger.debug("Checking strenght of password: " + password + " password is null");
+			passwordStrengthModel.setNonValidInputCondition(false);
 		} else if ((password.length() < 8) || (password.length() > 20 )){ //Check length constraints
 			logger.debug("Checking strenght of password: " + password + " password has a wrong lenghth: " + password.length());
-			return false;
+			passwordStrengthModel.setLengthCondition(false);
 		} else if (password.equals(password.toLowerCase()) || password.equals(password.toUpperCase())){ // Check case constraints
 			logger.debug("Checking strenght of password: " + password + " password fails multible case contraint");
-			return false;
+			passwordStrengthModel.setUpperLowerCaseCondition(false);
 		} else if (!password.matches(".*\\d+.*")){ //Check digits constraints
 			logger.debug("Checking strenght of password: " + password + " password has no digit");
-			return false;
+			passwordStrengthModel.setDigitCondition(false);;
 		} else if(containsNonDigitOrChar(password)){ //Check symbol constraints
 			logger.debug("Checking strenght of password: " + password + " password contains non digit char");
-			return false;
+			passwordStrengthModel.setSymbolCondition(false);
 		}
 		logger.info("Validated a successful password: " + password);
-		return true;
+		return passwordStrengthModel;
 	}
 	
 	private boolean containsNonDigitOrChar(String password){
