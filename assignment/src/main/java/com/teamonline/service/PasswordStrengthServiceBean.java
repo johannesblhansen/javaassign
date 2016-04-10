@@ -47,7 +47,6 @@ public class PasswordStrengthServiceBean implements PasswordStrengthService {
 			logger.debug("Checking strenght of password: " + password + " password contains non digit char");
 			passwordStrengthModel.setSymbolCondition(false);
 		}
-		logger.info("Validated a successful password: " + password);
 		return passwordStrengthModel;
 	}
 	
