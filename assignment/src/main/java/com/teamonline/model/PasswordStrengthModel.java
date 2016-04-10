@@ -48,6 +48,14 @@ public class PasswordStrengthModel {
 		this.nonValidInputCondition = nonValidInputCondition;
 	}
 	
+	public void invalidateAll(){
+		lengthCondition = false;	
+		digitCondition = false;
+		symbolCondition = false;
+		upperLowerCaseCondition  = false;
+		nonValidInputCondition  = false;
+	}
+	
 	public boolean isStrengthValid() {
 		if (lengthCondition && digitCondition && symbolCondition && upperLowerCaseCondition && nonValidInputCondition){
 			return true;
