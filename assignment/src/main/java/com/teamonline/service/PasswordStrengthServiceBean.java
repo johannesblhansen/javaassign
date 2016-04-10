@@ -34,16 +34,16 @@ public class PasswordStrengthServiceBean implements PasswordStrengthService {
 		if (password == null){
 			logger.debug("Checking strenght of password: " + password + " password is null");
 			passwordStrengthModel.setNonValidInputCondition(false);
-		} else if ((password.length() < 8) || (password.length() > 20 )){ //Check length constraints
+		} if ((password.length() < 8) || (password.length() > 20 )){ //Check length constraints
 			logger.debug("Checking strenght of password: " + password + " password has a wrong lenghth: " + password.length());
 			passwordStrengthModel.setLengthCondition(false);
-		} else if (password.equals(password.toLowerCase()) || password.equals(password.toUpperCase())){ // Check case constraints
+		} if (password.equals(password.toLowerCase()) || password.equals(password.toUpperCase())){ // Check case constraints
 			logger.debug("Checking strenght of password: " + password + " password fails multible case contraint");
 			passwordStrengthModel.setUpperLowerCaseCondition(false);
-		} else if (!password.matches(".*\\d+.*")){ //Check digits constraints
+		} if (!password.matches(".*\\d+.*")){ //Check digits constraints
 			logger.debug("Checking strenght of password: " + password + " password has no digit");
 			passwordStrengthModel.setDigitCondition(false);;
-		} else if(containsNonDigitOrChar(password)){ //Check symbol constraints
+		} if (containsNonDigitOrChar(password)){ //Check symbol constraints
 			logger.debug("Checking strenght of password: " + password + " password contains non digit char");
 			passwordStrengthModel.setSymbolCondition(false);
 		}
