@@ -45,22 +45,4 @@ public class NavigationTest extends SpringControllerTest {
 		int status = result.getResponse().getStatus();
 		assertEquals("Status of getting the registerpage should 200", 200, status);
 	}
-	
-	//This resource should not be available without auth
-	@Test
-	public void getTheResourceTemplateTest() throws Exception{
-		String uri = "/resource";		
-		MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(uri).accept(MediaType.TEXT_HTML)).andReturn();
-		int status = result.getResponse().getStatus(); //Expecting a redirect to login page.
-		assertEquals("Status of getting the resource page without auth should give 302", 302, status);
-	}
-	
-	//This resource should not be available without auth
-	@Test	
-	public void getTheResourceTemplateWithAuth() throws Exception{
-		String uri = "/resource";		
-		MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(uri).accept(MediaType.TEXT_HTML)).andReturn();
-		int status = result.getResponse().getStatus(); //Expecting a redirect to login page.
-		assertEquals("Status of getting the resource page without auth should give 302", 302, status);
-	}
 }
