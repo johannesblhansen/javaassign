@@ -33,12 +33,15 @@ public class AppSecurityTest extends SpringControllerTest {
                 .build();
 	}
 	
+	/**
+	 * The WithUserDetails annotation looks up a user in user details service and uses that user. 
+	 */
 	@Test
 	@WithUserDetails("user")
 	public void gettingArestrictedResourceWithAuser() throws Exception{
 		String uri = "/resource";		
 		MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(uri).accept(MediaType.TEXT_HTML)).andReturn();
-		int status = result.getResponse().getStatus(); //Expecting a redirect to login page.
+		int status = result.getResponse().getStatus();
 		assertEquals("Getting the secure resource " + uri + " with a user should return 200", 200, status);
 	}
 	
