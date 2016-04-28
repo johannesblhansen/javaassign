@@ -26,7 +26,7 @@ public class AppUserServiceTest extends BaseSpringTest {
 	private AppUserService appUserService;
 	
 	@Autowired
-	private PasswordEncoder passwordEncoder;	
+	private PasswordEncoder passwordEncoder;
 
 	@Test
 	public void findAnAppUserFromUserName() {
